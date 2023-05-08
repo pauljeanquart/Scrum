@@ -1,605 +1,477 @@
-<html>
-<!-- https://code.tutsplus.com/tutorials/create-a-sticky-note-effect-in-5-easy-steps-with-css3-and-html5--net-13934 -->
+<!DOCTYPE html>
+<html lang="en" data-color-mode="light" data-light-theme="light">
 
 <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/@primer/css@^20.2.4/dist/primer.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 20px auto;
-            font-family: 'Lato';
-            background: #666;
-            color: #fff;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        
-        h2 {
-            font-weight: bold;
-            font-size: 2rem;
-        }
-        
-        p {
-            font-size: 1rem;
-            font-weight: normal;
-        }
-        
-        ul,
-        li {
-            list-style: none;
-        }
-        
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        ul li a {
-            text-decoration: none;
-            color: #000;
-            background: #ffc;
-            display: block;
-            height: 10em;
-            width: 10em;
-            padding: 1em;
-        }
-        
-        ul li {
-            margin: 1em;
-        }
-        
-        h2 {
-            font-weight: bold;
-            font-size: 2rem;
-        }
-        
-        p {
-            font-family: 'Reenie Beanie';
-            font-size: 2rem;
-        }
-        
-        ul li a {
-            text-decoration: none;
-            color: #000;
-            background: #ffc;
-            display: block;
-            height: 10em;
-            width: 10em;
-            padding: 1em;
-            box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
-        }
-        
-        ul li a {
-            transform: rotate(-3deg);
-        }
-        
-        ul li:nth-child(even) a {
-            transform: rotate(2deg);
-            position: relative;
-            top: 5px;
-        }
-        
-        ul li:nth-child(3n) a {
-            transform: rotate(-1deg);
-            position: relative;
-            top: -5px;
-        }
-        
-        ul li:nth-child(5n) a {
-            transform: rotate(2deg);
-            position: relative;
-            top: -10px;
-        }
-        
-        ul li a:hover,
-        ul li a:focus {
-            box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
-            transform: scale(1.25);
-            position: relative;
-            z-index: 5;
-        }
-        
-        ul li a {
-            text-decoration: none;
-            color: #000;
-            background: #ffc;
-            display: block;
-            height: 10em;
-            width: 10em;
-            padding: 1em;
-            box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
-            transition: transform .15s linear;
-        }
-        
-        ul li:nth-child(even) a {
-            position: relative;
-            top: 5px;
-            background: #cfc;
-        }
-        
-        ul li:nth-child(3n) a {
-            position: relative;
-            top: -5px;
-            background: #ccf;
-        }
-        
-        table,
-        th,
-        td {
-            font-family: 'Reenie Beanie';
-            font-size: 2rem;
-            border: 1px solid black;
-        }
-        
-        td ul li a {
-            height: 1.5em;
-            width: 2em;
-            text-align: center;
-            vertical-align: top;
-        }
-        
-        td ul li a span {
-            font-size: 5rem;
-        }
-    </style>
+    <link rel="stylesheet" href="scrum.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script>
-        all_notes = $("li a");
-        all_notes.on("keyup", function() {
-            note_title = $(this).find("h2").text();
-            note_content = $(this).find("p").text();
-            item_key = "list_" + $(this).parent().index();
-            data = {
-                title: note_title,
-                content: note_content
-            };
-            window.localStorage.setItem(item_key, JSON.stringify(data));
-        });
+    <script src="scrum.js"></script>
+    <!-- https://code.tutsplus.com/tutorials/create-a-sticky-note-effect-in-5-easy-steps-with-css3-and-html5--net-13934 -->
 
-        all_notes.each(function(index) {
-            data = JSON.parse(window.localStorage.getItem("list_" + index));
-            if (data !== null) {
-                note_title = data.title;
-                note_content = data.content;
-                $(this).find("h2").text(note_title);
-                $(this).find("p").text(note_content);
-            }
-        });
-
-        $(document).ready(function() {
-            all_notes = $("li a");
-            all_notes.on("keyup", function() {
-                note_title = $(this).find("h2").text();
-                note_content = $(this).find("p").text();
-                item_key = "list_" + $(this).parent().index();
-                data = {
-                    title: note_title,
-                    content: note_content
-                };
-                window.localStorage.setItem(item_key, JSON.stringify(data));
-            });
-            all_notes.each(function(index) {
-                data = JSON.parse(window.localStorage.getItem("list_" + index));
-                if (data !== null) {
-                    note_title = data.title;
-                    note_content = data.content;
-                    $(this).find("h2").text(note_title);
-                    $(this).find("p").text(note_content);
-                }
-            });
-        });
-    </script>
 </head>
 
 <body>
-    <h2>Sprint Report</h2>
-    <table>
-        <tr>
-            <th></th>
-            <th>Sprint 1</th>
-            <th>Sprint 2</th>
-            <th>Sprint 3</th>
-            <th>Sprint 4</th>
-        </tr>
-        <tr>
-            <td>
-                <h3>PBIs Planned</h3>
-                <p># of PBIs Planned for the Sprint</p>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>PBIs Done</th>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>PBIs Added</th>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>PBIs Removed</th>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>PBIs Incomplete</th>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>% Forecast Met</th>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th>Velocity</th>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th># PBIs Left</th>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th># Points Left</th>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th># Sprints Left</th>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <th># Sprints Needed</th>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-            <td>
-                <ul>
-                    <li>
-                        <a href="#" contenteditable><span>0</span></a>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-    </table>
-    <ul>
-        <li>
-            <a href="#" contenteditable>
-                <h2>Title #1</h2>
-                <p>Text Content #1</p>
-            </a>
-        </li>
-        <li>
-            <a href="#" contenteditable>
-                <h2>Title #2</h2>
-                <p>Text Content #2</p>
-            </a>
-        </li>
-        <li>
-            <a href="#" contenteditable>
-                <h2>Title #1</h2>
-                <p>Text Content #1</p>
-            </a>
-        </li>
-        <li>
-            <a href="#" contenteditable>
-                <h2>Title #2</h2>
-                <p>Text Content #2</p>
-            </a>
-        </li>
-        <li>
-            <a href="#" contenteditable>
-                <h2>Title #1</h2>
-                <p>Text Content #1</p>
-            </a>
-        </li>
-        <li>
-            <a href="#" contenteditable>
-                <h2>Title #2</h2>
-                <p>Text Content #2</p>
-            </a>
-        </li>
-        <li>
-            <a href="#" contenteditable>
-                <h2>Title #1</h2>
-                <p>Text Content #1</p>
-            </a>
-        </li>
-        <li>
-            <a href="#" contenteditable>
-                <h2>Title #2</h2>
-                <p>Text Content #2</p>
-            </a>
-        </li>
-        […]
-    </ul>
+    <div class="mx-auto py-1 px-2">
+
+        <h1 class="font-rb">Sprint Report</h2>
+            <table class="">
+                <tr>
+                    <td class="px-1"></td>
+                    <td class="px-1">
+                        <h1 class="font-rb">Sprint 1</h1>
+                    </td>
+                    <td class="px-1">
+                        <h1 class="font-rb">Sprint 2</h1>
+                    </td>
+                    <td class="px-1">
+                        <h1 class="font-rb">Sprint 3</h1>
+                    </td>
+                    <td class="px-1">
+                        <h1 class="font-rb">Sprint 4</h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-1">
+                        <h1 class="font-rb">PBIs Planned</h1>
+                        <p class="color-fg-danger text-small"># of PBIs Planned for the Sprint</p>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-1">
+                        <h1 class="font-rb">PBIs Done</h1>
+                        <p class="color-fg-danger text-small"># of PBIs completed in the Sprint</p>
+
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-1">
+                        <h1 class="font-rb">PBIs Added</h1>
+                        <p class="color-fg-danger text-small"># of PBIs added to the Sprint</p>
+
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-1">
+                        <h1 class="font-rb">PBIs Removed</h1>
+                        <p class="color-fg-danger text-small"># of PBIs removed/ed-scoped from the Sprint by the PO</p>
+
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-1">
+                        <h1 class="font-rb">PBIs Incomplete</h1>
+                        <p class="color-fg-danger text-small"># of PBIs that didn't meet the Scrum Team's Definition of Done</p>
+
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-1">
+                        <h1 class="font-rb">% Forecast Met</h1>
+                        <p class="color-fg-danger text-small">(PBIs Done / PBIs Planned) * 100 = % Forecast Met</p>
+
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-1">
+                        <h1 class="font-rb">Velocity</h1>
+                        <p class="color-fg-danger text-small">Sum of the Story Points delivered in the Sprint</p>
+
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-1">
+                        <h1 class="font-rb"># PBIs Left</h1>
+                        <p class="color-fg-danger text-small">Total PBIs in the Product Backlog - PBIs Done in the Sprint</p>
+
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-1">
+                        <h1 class="font-rb"># Points Left</h1>
+                        <p class="color-fg-danger text-small">Total Points left in the Product Backlog</p>
+
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-1">
+                        <h1 class="font-rb"># Sprints Left</h1>
+                        <p class="color-fg-danger text-small">Total Sprints Left in Release</p>
+
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="px-1">
+                        <h1 class="font-rb"># Sprints Needed</h1>
+                        <p class="color-fg-danger text-small">(# Points Left / Velocity) = # Sprints Needed (round up)</p>
+
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                    <td class="">
+                        <ul class="post-it-container">
+                            <li class="no-tilt">
+                                <a href="#" contenteditable><span>0</span></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <ul class="post-it-container">
+                <li>
+                    <a href="#" contenteditable>
+                        <h2>Title #1</h2>
+                        <p>Text Content #1</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" contenteditable>
+                        <h2>Title #2</h2>
+                        <p>Text Content #2</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" contenteditable>
+                        <h2>Title #1</h2>
+                        <p>Text Content #1</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" contenteditable>
+                        <h2>Title #2</h2>
+                        <p>Text Content #2</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" contenteditable>
+                        <h2>Title #1</h2>
+                        <p>Text Content #1</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" contenteditable>
+                        <h2>Title #2</h2>
+                        <p>Text Content #2</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" contenteditable>
+                        <h2>Title #1</h2>
+                        <p>Text Content #1</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" contenteditable>
+                        <h2>Title #2</h2>
+                        <p>Text Content #2</p>
+                    </a>
+                </li>
+                […]
+            </ul>
+    </div>
 </body>
 
 </html>
