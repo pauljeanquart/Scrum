@@ -26,14 +26,14 @@ $(document).ready(function() {
         note_title = $(this).find("h2").text();
         note_content = $(this).find("p").text();
         item_key = "list_" + $(this).parent().index();
-        data = {
+        let data = {
             title: note_title,
             content: note_content
         };
         window.localStorage.setItem(item_key, JSON.stringify(data));
     });
     all_notes.each(function(index) {
-        data = JSON.parse(window.localStorage.getItem("list_" + index));
+        let data = JSON.parse(window.localStorage.getItem("list_" + index));
         if (data !== null) {
             note_title = data.title;
             note_content = data.content;

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="scrum.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="scrum.js"></script>
+    <script src="data.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- https://code.tutsplus.com/tutorials/create-a-sticky-note-effect-in-5-easy-steps-with-css3-and-html5--net-13934 -->
 
@@ -86,413 +87,417 @@
                                 <div class="mb-3 d-flex flex-justify-between flex-items-center">
                                     <div>
                                         <h1 class="font-rb">Sprint Report</h1>
-                                        <table class="">
-                                            <tr>
-                                                <td class="px-1"></td>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb">Sprint 1</h1>
-                                                </td>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb">Sprint 2</h1>
-                                                </td>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb">Sprint 3</h1>
-                                                </td>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb">Sprint 4</h1>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb">PBIs Planned</h1>
-                                                    <p class="color-fg-danger text-small"># of PBIs Planned for the Sprint</p>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb">PBIs Done</h1>
-                                                    <p class="color-fg-danger text-small"># of PBIs completed in the Sprint</p>
+                                        <table id="report" class="">
+                                            <thead>
+                                                <tr>
+                                                    <td class="px-1"></td>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb">Sprint 1</h1>
+                                                    </td>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb">Sprint 2</h1>
+                                                    </td>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb">Sprint 3</h1>
+                                                    </td>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb">Sprint 4</h1>
+                                                    </td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb">PBIs Planned</h1>
+                                                        <p class="color-fg-danger text-small"># of PBIs Planned for the Sprint</p>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb">PBIs Done</h1>
+                                                        <p class="color-fg-danger text-small"># of PBIs completed in the Sprint</p>
 
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb">PBIs Added</h1>
-                                                    <p class="color-fg-danger text-small"># of PBIs added to the Sprint</p>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb">PBIs Added</h1>
+                                                        <p class="color-fg-danger text-small"># of PBIs added to the Sprint</p>
 
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb">PBIs Removed</h1>
-                                                    <p class="color-fg-danger text-small"># of PBIs removed/ed-scoped from the Sprint by the PO
-                                                    </p>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb">PBIs Removed</h1>
+                                                        <p class="color-fg-danger text-small"># of PBIs removed/ed-scoped from the Sprint by the PO
+                                                        </p>
 
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb">PBIs Incomplete</h1>
-                                                    <p class="color-fg-danger text-small"># of PBIs that didn't meet the Scrum Team's Definition of Done
-                                                    </p>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb">PBIs Incomplete</h1>
+                                                        <p class="color-fg-danger text-small"># of PBIs that didn't meet the Scrum Team's Definition of Done
+                                                        </p>
 
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb">% Forecast Met</h1>
-                                                    <p class="color-fg-danger text-small">(PBIs Done / PBIs Planned) * 100 = % Forecast Met
-                                                    </p>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb">% Forecast Met</h1>
+                                                        <p class="color-fg-danger text-small">(PBIs Done / PBIs Planned) * 100 = % Forecast Met
+                                                        </p>
 
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb">Velocity</h1>
-                                                    <p class="color-fg-danger text-small">Sum of the Story Points delivered in the Sprint
-                                                    </p>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb">Velocity</h1>
+                                                        <p class="color-fg-danger text-small">Sum of the Story Points delivered in the Sprint
+                                                        </p>
 
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb"># PBIs Left</h1>
-                                                    <p class="color-fg-danger text-small">Total PBIs in the Product Backlog - PBIs Done in the Sprint
-                                                    </p>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb"># PBIs Left</h1>
+                                                        <p class="color-fg-danger text-small">Total PBIs in the Product Backlog - PBIs Done in the Sprint
+                                                        </p>
 
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb"># Points Left</h1>
-                                                    <p class="color-fg-danger text-small">Total Points left in the Product Backlog
-                                                    </p>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb"># Points Left</h1>
+                                                        <p class="color-fg-danger text-small">Total Points left in the Product Backlog
+                                                        </p>
 
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb"># Sprints Left</h1>
-                                                    <p class="color-fg-danger text-small">Total Sprints Left in Release</p>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb"># Sprints Left</h1>
+                                                        <p class="color-fg-danger text-small">Total Sprints Left in Release</p>
 
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="px-1">
-                                                    <h1 class="font-rb"># Sprints Needed</h1>
-                                                    <p class="color-fg-danger text-small">(# Points Left / Velocity) = # Sprints Needed (round up)
-                                                    </p>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-1">
+                                                        <h1 class="font-rb"># Sprints Needed</h1>
+                                                        <p class="color-fg-danger text-small">(# Points Left / Velocity) = # Sprints Needed (round up)
+                                                        </p>
 
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                                <td class="">
-                                                    <ul class="post-it-container">
-                                                        <li class="no-tilt">
-                                                            <a href="#" contenteditable><span>0</span></a>
-                                                        </li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                    <td class="">
+                                                        <ul class="post-it-container">
+                                                            <li class="no-tilt">
+                                                                <a href="#" contenteditable></a>
+                                                            </li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -509,9 +514,9 @@
 
 
             <script>
-                const ctx = document.getElementById('myChart');
+                const ctx0 = document.getElementById('myChart');
 
-                const data = {
+                const data0 = {
                     labels: ['', 'Sprint 1', 'Sprint 2', 'Sprint 3', 'Sprint 4'],
                     datasets: [{
                         //label: '',
@@ -532,9 +537,9 @@
                     }]
                 };
 
-                const config = {
+                const config0 = {
                     type: 'line',
-                    data: data,
+                    data: data0,
                     options: {
                         plugins: {
                             legend: {
@@ -544,7 +549,7 @@
                     }
                 };
 
-                new Chart(ctx, config);
+                new Chart(ctx0, config0);
 
                 const ctx1 = document.getElementById('myChart1');
                 const data1 = {
@@ -637,6 +642,26 @@
                         }
                     }
                 });
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    // do something here ...
+                    loadReport();
+                }, false);
+
+                function loadReport() {
+                    let c = 1;
+                    dat.report.forEach(item => {
+                        var tableId = document.getElementById('report');
+                        var tBody = tableId.getElementsByTagName('tbody')[0];
+                        var tableRows = tBody.getElementsByTagName('tr');
+                        for (i = 0; i < tableRows.length; ++i) {
+                            var tableData = tableRows[i].getElementsByTagName('td')[c];
+                            var editable = tableData.getElementsByTagName('a')[0];
+                            editable.textContent = item[i];
+                        }
+                        c++;
+                    })
+                }
             </script>
 
         </div>
